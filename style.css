@@ -385,3 +385,15 @@ input[type="checkbox"]{
     margin-top:8px;
     color:#ef4444;
 }
+
+.chapter-card hr{
+    border:none;
+    height:1px;
+    background:rgba(255,255,255,0.08);
+    margin:12px 0;
+}
+
+.chapter-card p{
+    margin:6px 0;
+    color:#cbd5e1;
+}
