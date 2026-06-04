@@ -92,3 +92,64 @@ checkboxes.forEach(box => {
     );
 
 });
+// ==========================
+// SUBJECTS
+// ==========================
+
+function loadSubjects(){
+
+    const container =
+    document.getElementById(
+        "subjects-container"
+    );
+
+    if(!container) return;
+
+    container.innerHTML = "";
+
+    studentData.subjects.forEach(
+        subject => {
+
+        container.innerHTML += `
+
+        <div class="subject-card">
+
+            <div
+            class="subject-title">
+
+            ${subject.name}
+
+            </div>
+
+            <div
+            class="subject-progress">
+
+                <div
+                class="subject-progress-fill"
+
+                style="
+                width:${subject.progress}%;
+                background:${subject.color};
+                ">
+                </div>
+
+            </div>
+
+            <p style="
+            margin-top:10px;
+            color:#94a3b8;
+            ">
+
+            ${subject.progress}% Complete
+
+            </p>
+
+        </div>
+
+        `;
+    });
+
+}
+
+loadSubjects();
+
