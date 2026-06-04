@@ -153,3 +153,77 @@ function loadSubjects(){
 
 loadSubjects();
 
+// ==========================
+// PHYSICS CHAPTERS
+// ==========================
+
+function loadPhysicsChapters(){
+
+    const container =
+    document.getElementById(
+        "chapters-container"
+    );
+
+    if(!container) return;
+
+    container.innerHTML = "";
+
+    const physics =
+    studentData.subjects.find(
+        s => s.name === "Physics"
+    );
+
+    if(!physics) return;
+
+    physics.chapters.forEach(
+        chapter => {
+
+        container.innerHTML += `
+
+        <div class="chapter-card">
+
+            <h3>
+            ${chapter.name}
+            </h3>
+
+            <div class="chapter-meta">
+
+            Started:
+            ${chapter.started}
+
+            </div>
+
+            <div class="chapter-meta">
+
+            Target:
+            ${chapter.target}
+
+            </div>
+
+            <div class="readiness">
+
+            ${chapter.readiness}%
+
+            </div>
+
+            <div>
+
+            Readiness
+
+            </div>
+
+            <div class="mistakes">
+
+            Mistakes:
+            ${chapter.mistakes}
+
+            </div>
+
+        </div>
+
+        `;
+    });
+
+}
+
+loadPhysicsChapters();
