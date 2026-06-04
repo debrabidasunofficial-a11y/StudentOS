@@ -16,66 +16,49 @@ const studentData = {
 
     jeeDate: "2026-12-31",
 
-    subjects: [
 
-        {
-            name: "Physics",
-            color: "#3b82f6"
-        },
-
-        {
-            name: "Chemistry",
-            color: "#22c55e"
-        },
-
-        {
-            name: "Mathematics",
-            color: "#a855f7"
-        },
-
-        {
-            name: "Biology",
-            color: "#06b6d4"
-        },
-
-        {
-            name: "English",
-            color: "#f59e0b"
-        },
-
-        {
-            name: "Bengali",
-            color: "#fb7185"
-        }
-
-    ],
-
-    missions: [
-
-        {
-            task: "Physics NLM DPP",
-            completed: false
-        },
-
-        {
-            task: "Maths Functions Revision",
-            completed: false
-        },
-
-        {
-            task: "Chemistry Module",
-            completed: false
-        }
-
-    ]
-
-};
-subjects: [
+        subjects: [
 
 {
     name:"Physics",
     progress:72,
-    color:"#3b82f6"
+    color:"#3b82f6",
+
+    chapters:[
+
+        {
+            name:"Units & Dimensions",
+            started:"2026-06-01",
+            target:"2026-06-10",
+            readiness:85,
+            mistakes:3
+        },
+
+        {
+            name:"Motion in 1D",
+            started:"2026-06-05",
+            target:"2026-06-15",
+            readiness:62,
+            mistakes:5
+        },
+
+        {
+            name:"Motion in 2D",
+            started:"2026-06-12",
+            target:"2026-06-22",
+            readiness:48,
+            mistakes:7
+        },
+
+        {
+            name:"NLM",
+            started:"2026-06-20",
+            target:"2026-07-01",
+            readiness:30,
+            mistakes:11
+        }
+
+    ]
 },
 
 {
