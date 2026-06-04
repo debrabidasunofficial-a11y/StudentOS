@@ -180,48 +180,95 @@ function loadPhysicsChapters(){
 
         container.innerHTML += `
 
-        <div class="chapter-card">
+<div class="chapter-card">
 
-            <h3>
-            ${chapter.name}
-            </h3>
+    <h3>${chapter.name}</h3>
 
-            <div class="chapter-meta">
+    <div class="chapter-meta">
+        Started: ${chapter.started}
+    </div>
 
-            Started:
-            ${chapter.started}
+    <div class="chapter-meta">
+        Target: ${chapter.target}
+    </div>
 
-            </div>
+    <div class="chapter-meta">
+        Status: ${chapter.status || "Learning"}
+    </div>
 
-            <div class="chapter-meta">
+    ${chapter.lecture ? `
 
-            Target:
-            ${chapter.target}
+    <hr>
 
-            </div>
+    <p>
+    Lecture:
+    ${chapter.lecture.completed}
+    /
+    ${chapter.lecture.total}
+    </p>
 
-            <div class="readiness">
+    <p>
+    DPP:
+    ${chapter.dpp.solved}
+    /
+    ${chapter.dpp.given}
+    </p>
 
-            ${chapter.readiness}%
+    <p>
+    HW:
+    ${chapter.homework.solved}
+    /
+    ${chapter.homework.given}
+    </p>
 
-            </div>
+    <p>
+    Module:
+    ${chapter.module.solved}
+    /
+    ${chapter.module.given}
+    </p>
 
-            <div>
+    <p>
+    PYQ:
+    ${chapter.pyq.solved}
+    /
+    ${chapter.pyq.given}
+    </p>
 
-            Readiness
+    <p>
+    Forge:
+    ${chapter.forge}
+    </p>
 
-            </div>
+    <p>
+    Recall:
+    ${chapter.recall}
+    </p>
 
-            <div class="mistakes">
+    ` : ""}
 
-            Mistakes:
-            ${chapter.mistakes}
+    <div class="readiness">
 
-            </div>
+        ${chapter.readiness}%
 
-        </div>
+    </div>
 
-        `;
+    <div>
+
+        Readiness
+
+    </div>
+
+    <div class="mistakes">
+
+        Mistakes:
+        ${chapter.mistakes}
+
+    </div>
+
+</div>
+
+`;
     });
 
 }
