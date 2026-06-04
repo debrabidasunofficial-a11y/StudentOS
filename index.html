@@ -1,1 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentOS</title>
 
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>StudentOS</h2>
+            <span>JEE Command Center</span>
+        </div>
+
+        <nav>
+
+            <button class="nav-btn active">
+                Dashboard
+            </button>
+
+            <button class="nav-btn">
+                Subjects
+            </button>
+
+            <button class="nav-btn">
+                Calendar
+            </button>
+
+            <button class="nav-btn">
+                Tests
+            </button>
+
+            <button class="nav-btn">
+                Mistake Bank
+            </button>
+
+            <button class="nav-btn">
+                Study Timer
+            </button>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="main-content">
+
+        <!-- Header -->
+
+        <header class="topbar">
+
+            <div>
+                <h1>Good Morning, Vasu</h1>
+                <p>Keep moving toward Shadow Monarch.</p>
+            </div>
+
+            <div class="rank-card">
+
+                <h3>Shadow Knight</h3>
+                <span>Health Score 68</span>
+
+            </div>
+
+        </header>
+
+        <!-- Dashboard Grid -->
+
+        <section class="dashboard-grid">
+
+            <!-- Countdown -->
+
+            <div class="card countdown-card">
+
+                <h2>JEE Main Attempt 1</h2>
+
+                <div id="countdown">
+                    Loading...
+                </div>
+
+            </div>
+
+            <!-- Academic Health -->
+
+            <div class="card">
+
+                <h2>Academic Health</h2>
+
+                <div class="health-score">
+                    82
+                </div>
+
+            </div>
+
+            <!-- Practice -->
+
+            <div class="card">
+
+                <h2>Forge Score ⚒</h2>
+
+                <div class="score">
+                    76
+                </div>
+
+            </div>
+
+            <!-- Revision -->
+
+            <div class="card">
+
+                <h2>Recall Score 🧠</h2>
+
+                <div class="score">
+                    69
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Today's Mission -->
+
+        <section class="card mission-card">
+
+            <h2>Today's Mission</h2>
+
+            <ul>
+
+                <li>
+                    <input type="checkbox">
+                    Physics NLM DPP
+                </li>
+
+                <li>
+                    <input type="checkbox">
+                    Maths Functions Revision
+                </li>
+
+                <li>
+                    <input type="checkbox">
+                    Chemistry Module
+                </li>
+
+            </ul>
+
+        </section>
+
+    </main>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
