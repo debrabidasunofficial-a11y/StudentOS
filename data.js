@@ -70,3 +70,42 @@ const studentData = {
     ]
 
 };
+subjects: [
+
+{
+    name:"Physics",
+    progress:72,
+    color:"#3b82f6"
+},
+
+{
+    name:"Chemistry",
+    progress:65,
+    color:"#22c55e"
+},
+
+{
+    name:"Mathematics",
+    progress:78,
+    color:"#a855f7"
+},
+
+{
+    name:"Biology",
+    progress:35,
+    color:"#06b6d4"
+},
+
+{
+    name:"English",
+    progress:52,
+    color:"#f59e0b"
+},
+
+{
+    name:"Bengali",
+    progress:48,
+    color:"#fb7185"
+}
+
+],
