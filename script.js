@@ -200,7 +200,16 @@ function loadPhysicsChapters() {
 
             container.innerHTML += `
 
-            <div class="chapter-card">
+            <div
+class="chapter-card"
+
+data-index="${physics.chapters.indexOf(chapter)}"
+
+onclick="
+openChapterModal(
+${physics.chapters.indexOf(chapter)}
+)
+">
 
                 <h3>
                 ${chapter.name}
