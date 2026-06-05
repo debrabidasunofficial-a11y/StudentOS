@@ -497,3 +497,418 @@ if (resetBtn) {
 }
 
 updateTimer();
+
+// ==========================
+// LOCAL STORAGE
+// ==========================
+
+function saveData(){
+
+    localStorage.setItem(
+        "studentOS",
+        JSON.stringify(studentData)
+    );
+
+}
+
+function loadSavedData(){
+
+    const saved =
+    localStorage.getItem(
+        "studentOS"
+    );
+
+    if(saved){
+
+        Object.assign(
+            studentData,
+            JSON.parse(saved)
+        );
+
+    }
+
+}
+
+loadSavedData();
+
+
+// ==========================
+// READINESS ENGINE
+// ==========================
+
+function calculateReadiness(
+chapter
+){
+
+    if(
+        !chapter.lecture
+    ){
+        return chapter.readiness || 0;
+    }
+
+    const lectureScore =
+
+    (chapter.lecture.completed /
+    chapter.lecture.total)
+    * 100;
+
+    const dppScore =
+
+    (chapter.dpp.solved /
+    chapter.dpp.given)
+    * 100;
+
+    const hwScore =
+
+    (chapter.homework.solved /
+    chapter.homework.given)
+    * 100;
+
+    const moduleScore =
+
+    (chapter.module.solved /
+    chapter.module.given)
+    * 100;
+
+    const pyqScore =
+
+    (chapter.pyq.solved /
+    chapter.pyq.given)
+    * 100;
+
+    const revisionScore =
+
+    (
+        (chapter.revision.daily ? 1 : 0)
+        +
+        (chapter.revision.weekly ? 1 : 0)
+        +
+        (chapter.revision.monthly ? 1 : 0)
+        +
+        (chapter.revision.sunday ? 1 : 0)
+    )
+    / 4 * 100;
+
+    let readiness =
+
+    lectureScore * 0.15 +
+
+    dppScore * 0.15 +
+
+    hwScore * 0.10 +
+
+    moduleScore * 0.20 +
+
+    pyqScore * 0.20 +
+
+    revisionScore * 0.20;
+
+    const saturationUnlocked =
+
+    moduleScore >= 80 &&
+
+    pyqScore >= 70 &&
+
+    chapter.mistakes <= 3;
+
+    if(
+        !saturationUnlocked &&
+        readiness > 84
+    ){
+
+        readiness = 84;
+
+    }
+
+    return Math.round(
+        readiness
+    );
+}
+
+
+// ==========================
+// FORGE ENGINE
+// ==========================
+
+function calculateForge(){
+
+    let total = 0;
+
+    studentData.subjects.forEach(
+        subject => {
+
+        if(!subject.chapters)
+        return;
+
+        subject.chapters.forEach(
+            chapter => {
+
+            if(chapter.homework){
+
+                total +=
+                chapter.homework.solved
+                * 0.1;
+
+            }
+
+            if(chapter.dpp){
+
+                total +=
+                chapter.dpp.solved
+                * 0.15;
+
+            }
+
+            if(chapter.module){
+
+                total +=
+                chapter.module.solved
+                * 0.2;
+
+            }
+
+            if(chapter.pyq){
+
+                total +=
+                chapter.pyq.solved
+                * 0.3;
+
+            }
+
+        });
+
+    });
+
+    return Math.round(
+        Math.min(
+            total,
+            100
+        )
+    );
+}
+
+
+// ==========================
+// RECALL ENGINE
+// ==========================
+
+function calculateRecall(){
+
+    let earned = 0;
+
+    let total = 0;
+
+    studentData.subjects.forEach(
+        subject => {
+
+        if(!subject.chapters)
+        return;
+
+        subject.chapters.forEach(
+            chapter => {
+
+            if(
+                !chapter.revision
+            ) return;
+
+            total += 4;
+
+            if(
+                chapter.revision.daily
+            ) earned++;
+
+            if(
+                chapter.revision.weekly
+            ) earned++;
+
+            if(
+                chapter.revision.monthly
+            ) earned++;
+
+            if(
+                chapter.revision.sunday
+            ) earned++;
+
+        });
+
+    });
+
+    if(total === 0)
+    return 0;
+
+    return Math.round(
+        earned / total * 100
+    );
+}
+
+
+// ==========================
+// ACADEMIC HEALTH
+// ==========================
+
+function calculateAverageReadiness(){
+
+    let total = 0;
+
+    let count = 0;
+
+    studentData.subjects.forEach(
+        subject => {
+
+        if(!subject.chapters)
+        return;
+
+        subject.chapters.forEach(
+            chapter => {
+
+            total +=
+            calculateReadiness(
+                chapter
+            );
+
+            count++;
+
+        });
+
+    });
+
+    if(count === 0)
+    return 0;
+
+    return Math.round(
+        total / count
+    );
+}
+
+function calculateConsistency(){
+
+    return 70;
+}
+
+function calculateAcademicHealth(){
+
+    const forge =
+    calculateForge();
+
+    const recall =
+    calculateRecall();
+
+    const readiness =
+    calculateAverageReadiness();
+
+    const consistency =
+    calculateConsistency();
+
+    const result =
+
+    forge * 0.35 +
+
+    recall * 0.25 +
+
+    readiness * 0.25 +
+
+    consistency * 0.15;
+
+    return Math.round(
+        result
+    );
+}
+
+
+// ==========================
+// SHADOW RANK
+// ==========================
+
+function calculateRank(){
+
+    const health =
+    calculateAcademicHealth();
+
+    if(health <= 10)
+    return "E Rank";
+
+    if(health <= 20)
+    return "D Rank";
+
+    if(health <= 35)
+    return "C Rank";
+
+    if(health <= 50)
+    return "B Rank";
+
+    if(health <= 65)
+    return "A Rank";
+
+    if(health <= 75)
+    return "Shadow Knight";
+
+    if(health <= 85)
+    return "Elite Shadow";
+
+    if(health <= 92)
+    return "Shadow Commander";
+
+    if(health <= 98)
+    return "Shadow General";
+
+    return "Shadow Monarch";
+}
+
+
+// ==========================
+// WAR ROOM
+// ==========================
+
+function updateWarRoom(){
+
+    const healthElement =
+    document.getElementById(
+        "war-health"
+    );
+
+    const rankElement =
+    document.getElementById(
+        "war-rank"
+    );
+
+    const forgeElement =
+    document.getElementById(
+        "war-forge"
+    );
+
+    const recallElement =
+    document.getElementById(
+        "war-recall"
+    );
+
+    if(healthElement){
+
+        healthElement.textContent =
+        calculateAcademicHealth();
+
+    }
+
+    if(rankElement){
+
+        rankElement.textContent =
+        calculateRank();
+
+    }
+
+    if(forgeElement){
+
+        forgeElement.textContent =
+        calculateForge();
+
+    }
+
+    if(recallElement){
+
+        recallElement.textContent =
+        calculateRecall();
+
+    }
+
+}
+
+updateWarRoom();
