@@ -174,9 +174,9 @@
     </div>
 
 </section>
-    </main>
+    <!-- Mistake Bank -->
 
-    <section class="card mistake-section">
+<section class="card mistake-section">
 
     <h2>Mistake Bank</h2>
 
@@ -184,7 +184,153 @@
 
     </div>
 
-    </section>
+</section>
+
+<!-- Study Timer -->
+
+<section class="card timer-section">
+
+    <h2>Study Timer</h2>
+
+    <div class="timer-display" id="timer-display">
+        00:00:00
+    </div>
+
+    <div class="timer-controls">
+
+        <button id="start-btn">
+            Start
+        </button>
+
+        <button id="stop-btn">
+            Stop
+        </button>
+
+        <button id="reset-btn">
+            Reset
+        </button>
+
+    </div>
+
+</section>
+
+<!-- Revision Queue -->
+
+<section class="card revision-section">
+
+    <h2>Revision Queue</h2>
+
+    <div class="revision-list">
+
+        <div class="revision-item high">
+
+            <span>NLM</span>
+            <span>Due Today</span>
+
+        </div>
+
+        <div class="revision-item medium">
+
+            <span>Mole Concept</span>
+            <span>Tomorrow</span>
+
+        </div>
+
+        <div class="revision-item low">
+
+            <span>Functions</span>
+            <span>2 Days</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Next Test -->
+
+<section class="card test-section">
+
+    <h2>Next Test</h2>
+
+    <div class="test-card">
+
+        <h3>Batch Test 05</h3>
+
+        <p>
+            3 Days Remaining
+        </p>
+
+        <p>
+            Physics: NLM, WPE
+        </p>
+
+        <p>
+            Chemistry: Mole Concept
+        </p>
+
+        <p>
+            Maths: Functions
+        </p>
+
+    </div>
+
+</section>
+
+<!-- Chapter Editor Modal -->
+
+<div id="chapter-modal" class="modal">
+
+    <div class="modal-content">
+
+        <h2>Edit Chapter</h2>
+
+        <label>
+            Lecture Completed
+        </label>
+
+        <input
+            id="lecture-input"
+            type="number"
+        >
+
+        <label>
+            DPP Solved
+        </label>
+
+        <input
+            id="dpp-input"
+            type="number"
+        >
+
+        <label>
+            Mistakes
+        </label>
+
+        <input
+            id="mistake-input"
+            type="number"
+        >
+
+        <button id="save-chapter-btn">
+            Save Changes
+        </button>
+
+        <button id="close-modal-btn">
+            Close
+        </button>
+
+    </div>
+
+</div>
+
+</main>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
 
 <script src="data.js"></script>
 <script src="script.js"></script>
