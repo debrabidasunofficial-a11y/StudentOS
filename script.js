@@ -283,7 +283,9 @@ ${physics.chapters.indexOf(chapter)}
 
                 <div class="readiness">
 
-                    ${chapter.readiness}%
+                    ${calculateReadiness(
+chapter
+)}%
 
                 </div>
 
@@ -921,3 +923,179 @@ function updateWarRoom(){
 }
 
 updateWarRoom();
+
+// ==========================
+// ACTIVE CHAPTER
+// ==========================
+
+let currentChapterIndex =
+null;
+
+// ==========================
+// OPEN MODAL
+// ==========================
+
+function openChapterModal(
+index
+){
+
+    currentChapterIndex =
+    index;
+
+    const modal =
+    document.getElementById(
+        "chapter-modal"
+    );
+
+    const physics =
+    studentData.subjects.find(
+        s => s.name === "Physics"
+    );
+
+    const chapter =
+    physics.chapters[index];
+
+    document.getElementById(
+        "lecture-input"
+    ).value =
+
+    chapter.lecture
+    ?
+    chapter.lecture.completed
+    :
+    0;
+
+    document.getElementById(
+        "dpp-input"
+    ).value =
+
+    chapter.dpp
+    ?
+    chapter.dpp.solved
+    :
+    0;
+
+    document.getElementById(
+        "mistake-input"
+    ).value =
+
+    chapter.mistakes || 0;
+
+    modal.style.display =
+    "flex";
+
+}
+// ==========================
+// CLOSE MODAL
+// ==========================
+
+const closeModalBtn =
+
+document.getElementById(
+    "close-modal-btn"
+);
+
+if(closeModalBtn){
+
+    closeModalBtn
+    .addEventListener(
+        "click",
+
+        () => {
+
+            document
+            .getElementById(
+                "chapter-modal"
+            )
+            .style.display =
+            "none";
+
+        }
+    );
+
+}
+// ==========================
+// SAVE CHAPTER
+// ==========================
+
+const saveChapterBtn =
+
+document.getElementById(
+    "save-chapter-btn"
+);
+
+if(saveChapterBtn){
+
+saveChapterBtn
+.addEventListener(
+
+"click",
+
+function(){
+
+    const physics =
+
+    studentData.subjects.find(
+        s => s.name === "Physics"
+    );
+
+    const chapter =
+
+    physics.chapters[
+        currentChapterIndex
+    ];
+
+    chapter.lecture.completed =
+
+    Number(
+
+    document
+    .getElementById(
+        "lecture-input"
+    )
+    .value
+
+    );
+
+    chapter.dpp.solved =
+
+    Number(
+
+    document
+    .getElementById(
+        "dpp-input"
+    )
+    .value
+
+    );
+
+    chapter.mistakes =
+
+    Number(
+
+    document
+    .getElementById(
+        "mistake-input"
+    )
+    .value
+
+    );
+
+    saveData();
+
+    loadPhysicsChapters();
+
+    loadDashboard();
+
+    updateWarRoom();
+
+    document
+    .getElementById(
+        "chapter-modal"
+    )
+    .style.display =
+    "none";
+
+});
+
+}
