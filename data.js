@@ -234,3 +234,239 @@ const studentData = {
     ]
 
 };
+
+
+,
+
+// ==========================
+// STUDY STATS
+// ==========================
+
+studyStats:{
+
+    todayHours:4.5,
+
+    weeklyHours:28,
+
+    monthlyHours:112,
+
+    questionsSolvedToday:143,
+
+    questionsSolvedWeek:892,
+
+    questionsSolvedMonth:3410,
+
+    streak:17,
+
+    bestStreak:41
+
+},
+
+// ==========================
+// NEXT TEST
+// ==========================
+
+nextTest:{
+
+    name:"Batch Test 05",
+
+    date:"2026-06-10",
+
+    daysRemaining:3,
+
+    syllabus:{
+
+        physics:[
+            "NLM",
+            "Work Energy Power"
+        ],
+
+        chemistry:[
+            "Mole Concept"
+        ],
+
+        maths:[
+            "Functions"
+        ]
+
+    }
+
+},
+
+// ==========================
+// REVISION QUEUE
+// ==========================
+
+revisionQueue:[
+
+    {
+
+        chapter:"NLM",
+
+        priority:"High",
+
+        due:"Today"
+
+    },
+
+    {
+
+        chapter:"Mole Concept",
+
+        priority:"Medium",
+
+        due:"Tomorrow"
+
+    },
+
+    {
+
+        chapter:"Functions",
+
+        priority:"Low",
+
+        due:"2 Days"
+
+    }
+
+],
+
+// ==========================
+// ACHIEVEMENTS
+// ==========================
+
+achievements:[
+
+    {
+
+        title:"First Blood",
+
+        description:
+        "100 Questions Solved",
+
+        unlocked:true
+
+    },
+
+    {
+
+        title:"DPP Hunter",
+
+        description:
+        "1000 DPP Questions",
+
+        unlocked:false
+
+    },
+
+    {
+
+        title:"Module Crusher",
+
+        description:
+        "500 Module Questions",
+
+        unlocked:false
+
+    },
+
+    {
+
+        title:"Revision Monk",
+
+        description:
+        "30 Day Revision Streak",
+
+        unlocked:false
+
+    }
+
+],
+
+// ==========================
+// SHADOW ARMY
+// ==========================
+
+shadowArmy:{
+
+    rank:"Shadow Knight",
+
+    soldiers:12
+
+},
+
+// ==========================
+// DEADLINES
+// ==========================
+
+deadlines:[
+
+    {
+
+        chapter:"NLM",
+
+        targetDate:
+        "2026-07-01",
+
+        risk:"Medium"
+
+    },
+
+    {
+
+        chapter:"Mole Concept",
+
+        targetDate:
+        "2026-07-10",
+
+        risk:"Low"
+
+    }
+
+],
+
+// ==========================
+// MEMORY HEALTH
+// ==========================
+
+memoryHealth:[
+
+    {
+
+        chapter:"NLM",
+
+        health:62,
+
+        lastRevision:
+        "2026-06-01"
+
+    },
+
+    {
+
+        chapter:"Motion in 2D",
+
+        health:48,
+
+        lastRevision:
+        "2026-05-20"
+
+    }
+
+],
+
+// ==========================
+// SETTINGS
+// ==========================
+
+settings:{
+
+    targetRank:"IIT Kharagpur",
+
+    targetPercentile:99.5,
+
+    dailyGoalHours:8,
+
+    dailyQuestionGoal:120
+
+}
