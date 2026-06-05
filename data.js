@@ -29,47 +29,61 @@ const studentData = {
 
             chapters: [
 
-                {
-                    name: "Units & Dimensions",
-
-                    started: "2026-06-01",
-
-                    target: "2026-06-10",
-
-                    status: "Mastered",
-
-                    readiness: 85,
-
-                    mistakes: 3
-                },
+                
 
                 {
-                    name: "Motion in 1D",
+    name:"Motion in 2D",
 
-                    started: "2026-06-05",
+    started:"2026-06-12",
 
-                    target: "2026-06-15",
+    target:"2026-06-22",
 
-                    status: "Revising",
+    status:"Practicing",
 
-                    readiness: 62,
+    lecture:{
+        completed:3,
+        total:8
+    },
 
-                    mistakes: 5
-                },
+    dpp:{
+        given:120,
+        solved:40,
+        correct:25
+    },
 
-                {
-                    name: "Motion in 2D",
+    homework:{
+        given:40,
+        solved:20,
+        correct:12
+    },
 
-                    started: "2026-06-12",
+    module:{
+        given:150,
+        solved:25,
+        correct:15
+    },
 
-                    target: "2026-06-22",
+    pyq:{
+        given:85,
+        solved:0,
+        correct:0
+    },
 
-                    status: "Practicing",
+    revision:{
+        daily:false,
+        sunday:false,
+        weekly:false,
+        monthly:false
+    },
 
-                    readiness: 48,
+    forge:25,
 
-                    mistakes: 7
-                },
+    recall:10,
+
+    readiness:48,
+
+    mistakes:7
+                }
 
                 {
                     name: "NLM",
@@ -80,7 +94,7 @@ const studentData = {
 
                     status: "Practicing",
 
-                    lecture: {
+                    : {
                         completed: 5,
                         total: 8
                     },
@@ -233,10 +247,7 @@ const studentData = {
 
     ]
 
-};
-
-
-,
+],
 
 // ==========================
 // STUDY STATS
@@ -470,3 +481,5 @@ settings:{
     dailyQuestionGoal:120
 
 }
+
+};
